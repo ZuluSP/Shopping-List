@@ -1,0 +1,12 @@
+<div>
+    <app-total message = "Total por pagar " [total] = "getTotal()"></app-total>
+    
+<!--SE UTILIZA EL [] PARA RELACIONARLO CON LA PROPIEDAD QUE TIENE EL @INPUT-->
+    <app-item 
+    *ngFor = "let item of items" 
+    [item] = "item"
+    (deleteItem)="deleteItem($event)">
+       <p>{{item.title}}</p>
+    </app-item>
+
+</div>
