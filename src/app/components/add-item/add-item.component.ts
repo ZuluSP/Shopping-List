@@ -25,6 +25,7 @@ export class AddItemComponent implements OnInit {
   onSubmit(){
 
     const item = new Item();
+    
     item.id = this.id;
 
     item.title = this.title;
@@ -35,8 +36,10 @@ export class AddItemComponent implements OnInit {
 
     item.completed = false;
 
-    this.itemService.addItem(item);
-    this.router.navigate(['/']);
+    this.itemService.addItem(item).subscribe(res => {
+      this.router.navigate(['/']);
+    });
+    
   }
 
 }
